@@ -85,7 +85,7 @@ public class CalController {
 		return factorial;
 	}
 
-	@PostMapping("/calculatorapi/v1/min")
+	@PostMapping("/calculatorapi/v1/min-max")
     public String calculateMinMax(@RequestBody List<Integer> list ) {
      
         int min = Collections.min(list);
