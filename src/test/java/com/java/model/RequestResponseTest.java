@@ -21,13 +21,13 @@ class RequestResponseTest {
 	
 	@Test
 	public void testGetRequest() {
-		response.setRequest("number1 : 12, number2 : 15");
-		assertEquals("number1 : 12, number2 : 15", response.getRequest());
+		response.setRequest("number1 : 19, number2 : 17");
+		assertEquals("number1 : 19, number2 : 17", response.getRequest());
 	}
 	
 	@Test
 	public void testSetResponse() {
-		response.setResponse("answer : 27, Detail : 12 + 15 = 27");
+		response.setResponse("answer : 26, Detail : 12 + 15 = 27");
 		assertEquals("answer : 27, Detail : 12 + 15 = 27", response.getResponse());
 	}
 	
