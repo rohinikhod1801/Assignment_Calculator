@@ -1,27 +1,19 @@
 package com.java.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 
+@SpringBootTest
 class CalControllerTest {
 
-	@InjectMocks
+	@Autowired
 	private CalController cal;
-	
-	@BeforeEach 
-	void setUp()
-    {
-		 MockitoAnnotations.openMocks(this);
-        
-    }
 	
 	@Test
 	void testAddition() {
@@ -29,8 +21,8 @@ class CalControllerTest {
 		int number2=15;
 		int result=27;
 		String expectedResult="answer : " +result+ ", Detail : " +number1+ " + " +number2+ " = " +result;	
-		String actualResult=cal.addition(number1, number2);
-		assertThat(expectedResult).isEqualTo(actualResult);
+		ResponseEntity<String> actualResult=cal.addition(number1, number2);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());
 		
 	}
 
@@ -40,8 +32,8 @@ class CalControllerTest {
 		int number2=15;
 		int result=-3;
 		String expectedResult="answer : " +result+ ", Detail : " +number1+ " - " +number2+ " = " +result;	
-		String actualResult=cal.subtration(number1, number2);
-		assertThat(expectedResult).isEqualTo(actualResult);
+		ResponseEntity<String> actualResult=cal.substraction(number1, number2);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());
 	}
 
 	@Test
@@ -50,8 +42,8 @@ class CalControllerTest {
 		int number2=15;
 		int result=180;
 		String expectedResult="answer : " +result+ ", Detail : " +number1+ " * " +number2+ " = " +result;	
-		String actualResult=cal.multiplication(number1, number2);
-		assertThat(expectedResult).isEqualTo(actualResult);
+		ResponseEntity<String> actualResult=cal.multiplication(number1, number2);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());
 	}
 
 	@Test
@@ -60,8 +52,8 @@ class CalControllerTest {
 		double number2=15;
 		double result=0.8;
 		String expectedResult="answer : " +result+ ", Detail : " +number1+ " / " +number2+ " = " +result;	
-		String actualResult=cal.division(number1, number2);
-		assertThat(expectedResult).isEqualTo(actualResult);
+		ResponseEntity<String> actualResult=cal.division(number1, number2);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());
 	}
 
 	@Test
@@ -69,8 +61,8 @@ class CalControllerTest {
 		int number1=5;
 		int result=25;
 		String expectedResult="answer : " +result+ ", Detail : "+" square of "+number1+" = " +result;	
-		String actualResult=cal.square(number1);
-		assertThat(expectedResult).isEqualTo(actualResult);
+		ResponseEntity<String> actualResult=cal.square(number1);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());
 	}
 
 	@Test
@@ -78,8 +70,8 @@ class CalControllerTest {
 		double number1=225;
 		double result=15;
 		String expectedResult="answer : " +result+ ", Detail : "+" square Root of "+number1+" = " +result;		
-		String actualResult=cal.squareRoot(number1);
-		assertThat(expectedResult).isEqualTo(actualResult);
+		ResponseEntity<String> actualResult=cal.squareRoot(number1);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());
 	}
 
 	@Test
@@ -87,8 +79,8 @@ class CalControllerTest {
 		int number1=5;
 		int result=120;
 		String expectedResult="answer : " +result+ ", Detail : "+number1+"!= " +result;		
-		String actualResult=cal.factorial(number1);
-		assertThat(expectedResult).isEqualTo(actualResult);		
+		ResponseEntity<String> actualResult=cal.factorial(number1);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());		
 	}
 
 	@Test
@@ -98,9 +90,9 @@ class CalControllerTest {
 		int min=-15;
 		int max=19;
 		String expectedResult="min : "+min+", max : "+max;
-		String actualResult=cal.calculateMinMax(list);
-		assertThat(expectedResult).isEqualTo(actualResult);				
+		ResponseEntity<String> actualResult=cal.calculateMinMax(list);
+		assertThat(expectedResult).isEqualTo(actualResult.getBody());				
 		
 	}
 
-}
+} 
