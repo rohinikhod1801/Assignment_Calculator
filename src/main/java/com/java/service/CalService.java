@@ -105,7 +105,7 @@ public class CalService {
 	     String request="List : "+list;
 	     String response="min : "+min+", max : "+max;	    
 	      logRequestResponse(request,response);
-  
+ 
 	     return response;	
 	}
 
